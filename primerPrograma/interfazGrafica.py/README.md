@@ -2,7 +2,9 @@
 
 En el prensente directorio se utilizó el modulo Tkinter para crear una interfaz gráfica para una calculadora.
 
+Tkinter es una biblioteca estandar utilizada para crear una interfaz gráfica de usuario.
 
+Propietario: Susan Cedeño.
 
 ##Instrucciones de uso
 
@@ -10,3 +12,10 @@ En el prensente directorio se utilizó el modulo Tkinter para crear una interfaz
 
 
 py calculadora.py
+
+S
+
+#Demostración de ejecución
+<p align="center">
+  <img width="500" src="./Images/image.png">
+</p>
