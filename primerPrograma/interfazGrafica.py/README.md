@@ -13,7 +13,6 @@ Propietario: Susan Cedeño.
 
 py calculadora.py
 
-S
 
 #Demostración de ejecución
 <p align="center">
