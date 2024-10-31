@@ -7,9 +7,9 @@ README.md
 - **Descripción:** La función `comparar_con_promedio` no estaba correctamente indentada.
 - **Solución:** Se corrigió la indentación.
 
-## 2. Uso Incorrecto de `print`
+## 2. Uso Incorrecto de `print`git
 - **Descripción:** Las cadenas de texto en las funciones `print` no estaban correctamente formateadas.
-- **Solución:** Se utilizó f-strings correctamente.
+- **Solución:** Se utilizó la función strings correctamente.
 
 ## 3. Entrada del Usuario
 - **Descripción:** La línea que solicita el número tenía un error de sintaxis.
@@ -18,7 +18,3 @@ README.md
 ## 4. Conversión de Tipos
 - **Descripción:** Los números ingresados se almacenaban como cadenas.
 - **Solución:** Se convirtió la entrada del usuario a tipo numérico.
-
-## 5. Error de Nombre en `numeros`
-- **Descripción:** Hubo un error tipográfico en la declaración de la lista `numeros`.
-- **Solución:** Se corrigió el nombre en todas partes.
