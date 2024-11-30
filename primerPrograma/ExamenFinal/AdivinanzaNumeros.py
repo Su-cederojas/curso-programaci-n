@@ -102,7 +102,7 @@ def cargarEstadisticas():
         Jugador: Objeto jugador con las estadísticas cargadas.
         None: Si no existe el archivo o no se pueden cargar las estadísticas.
     """
-    ruta_archivo = os.path.join(DIRECTORIO_ACTUAL, "estadísticas.txt")  # Ruta completa del archivo.
+    ruta_archivo = os.path.join(DIRECTORIO_ACTUAL, "estadisticas.txt")  # Ruta completa del archivo.
     if os.path.exists(ruta_archivo):  # Verifica si el archivo existe.
         with open(ruta_archivo, "r") as archivo:
             nombre = archivo.readline().strip()  # Lee el nombre del jugador.
@@ -123,9 +123,21 @@ def guardarEstadisticas(jugador):
     try:
         ruta_archivo = os.path.join(DIRECTORIO_ACTUAL, "estadísticas.txt")  # Ruta completa del archivo.
         with open(ruta_archivo, "w") as archivo:
-            archivo.write(f"{jugador.nombre}\n")  # Escribe el nombre del jugador.
+            # Escribe las estadísticas del jugador al principio del archivo
+            partidas_jugadas = len(jugador.partidas)
+            partidas_ganadas = sum(1 for _, gano in jugador.partidas if gano)
+            porcentaje = (partidas_ganadas / partidas_jugadas) * 100 if partidas_jugadas > 0 else 0
+            archivo.write(f"Estadisticas de {jugador.nombre}:\n")
+            archivo.write(f"- Partidas jugadas: {partidas_jugadas}\n")
+            archivo.write(f"- Partidas ganadas: {partidas_ganadas}\n")
+            archivo.write(f"- Porcentaje de aciertos: {porcentaje:.2f}%\n\n")
+            
+            # Guarda el historial de partidas
+            archivo.write("Historial de partidas (Intentos, Resultado):\n")
             for intentos, gano in jugador.partidas:
-                archivo.write(f"{intentos},{int(gano)}\n")  # Escribe cada partida en formato CSV.
+                archivo.write(f"{intentos},{int(gano)}\n")
+            # 1= Gano 0=Perdio
+        
         print("\nEstadísticas guardadas correctamente en 'estadísticas.txt'.")
     except Exception as e:
         print(f"\nOcurrió un error al guardar las estadísticas: {e}")
@@ -166,7 +178,7 @@ def menu():
                     resultado = juego.validarNumero(numero)
                     print(resultado)
 
-                    if resultado == "¡Correcto! Adivinaste el número.":
+                    if resultado == "¡Felicidades es correcto! Adivinaste el número.":
                         jugador.registrarPartida(juego.intentos, True)
                         break
 
